@@ -18,18 +18,32 @@ To get started with this repository, you need to have a C compiler installed on 
 
 ### Prerequisites
 
-- A C compiler (GCC, Clang, etc.)
+- A C compiler (GCC, Clang, etc.) or CMake
 - Basic understanding of C programming
 
 ### Installation
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/DSA-in-C.git
+    git clone https://github.com/Akhil-Titus/DSA-in-C
     ```
 2. Navigate to the project directory:
     ```sh
     cd DSA-in-C
+    ```
+3. Make a build directory and navigate into it:
+    ```sh
+    mkdir build
+    cd build
+    ```
+3. Build with cmake
+    ```sh
+    cmake .. -G Ninja
+    Ninja
+    ```
+3. Run the executable in build directory
+    ```sh
+    ./<project_name>.exe
     ```
 
 ## Data Structures
