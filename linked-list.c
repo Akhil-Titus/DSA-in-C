@@ -4,7 +4,7 @@
 struct node
 {
     int value;
-    struct node* next;
+    struct node *next;
 };
 typedef struct node node_t;
 
@@ -54,7 +54,9 @@ int main()
     /*
     * (3)-(2)-(4)-(1)
     */
-    head = &n3;     // make n3 the first struct
+    // head = &n3;     // make n3 the first struct
+    // or
+    head = head->next;
     n3.next = &n2;  // give adress of n2 struct as the next node adress
     n2.next = &n1;  // give adress of n1 struct as the next node adress
     n1.next = NULL; // to end the structure
