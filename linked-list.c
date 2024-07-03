@@ -1,26 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "linked-list.h"
 
-struct node
-{
-    int value;
-    struct node *next;
-};
-typedef struct node node_t;
 
-void print_list(node_t *head)
-{
-    node_t *temporary = head;
 
-    while (temporary != NULL)
-    {
-        printf("%d-", temporary->value);
-        temporary = temporary->next;
-    }
-    printf("\n");
-}
-
-int main()
+void basic_method()
 {
     node_t n1, n2, n3, n4;
     node_t *head;
@@ -40,7 +22,7 @@ int main()
     n1.next = NULL; // to end the structure
 
     printf("Node 1 (3)-(2)-(1)\n");
-    print_list(head);       // normal node 
+    print_linked_list(head);       // normal node 
 
     /*
     * (4)-(3)-(2)-(1)
@@ -49,7 +31,7 @@ int main()
     head = &n4;
 
     printf("Node 2 (4)-(3)-(2)-(1)\n");
-    print_list(head);       // new node as head
+    print_linked_list(head);       // new node as head
 
     /*
     * (3)-(2)-(4)-(1)
@@ -64,7 +46,7 @@ int main()
     printf("Node 3 (3)-(2)-(4)-(1)\n");
     n2.next = &n4;
     n4.next = &n1;
-    print_list(head);       // put n4 between n2 and n1
+    print_linked_list(head);       // put n4 between n2 and n1
 
     /*
     * (4)-(3)-(2)-(4)-(1)
@@ -73,10 +55,27 @@ int main()
 
     head = &n4;
     n4.next = &n3;
-    print_list(head);
+    print_linked_list(head);
     *
     */
+}
 
+void print_linked_list(node_t *head)
+{
+    node_t *temporary = head;
 
-    return 0;
+    while (temporary != NULL)
+    {
+        printf("%d-", temporary->value);
+        temporary = temporary->next;
+    }
+    printf("\n");
+}
+
+node_t *create_new_node(int value)
+{
+    node_t *result = malloc(sizeof(node_t));    // dynamically allocate node in the heap memory
+    result->value = value;
+    result->next = NULL;
+    return result;
 }
